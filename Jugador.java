@@ -13,4 +13,35 @@ public class Jugador {
         Lesionado = false;
     }
 
+    public String getNombre() {
+        return Nombre;
+    }
+
+    public String getNacionalidad(){
+        return Nacionalidad;
+    }
+
+    public int getEdad() {
+        return edad;
+    }
+
+    public String getPosicion(){
+        return Posicion;
+    }
+
+    public boolean getLesionado(){
+        return Lesionado;
+    }
+
+    public void Lesionarse(){
+        if (!Lesionado){
+            Lesionado = true;
+        }
+    }
+
+    public void Recuperarse(){
+        if (Lesionado){
+            Lesionado = false;
+        }
+    }
 }
