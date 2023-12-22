@@ -13,32 +13,39 @@ public class Jugador {
         Lesionado = false;
     }
 
+    //Metodo que nos devuelve el nombre del jugador
     public String getNombre() {
         return Nombre;
     }
 
+    //Metodo que nos devuelve la nacionalidad del jugador
     public String getNacionalidad(){
         return Nacionalidad;
     }
 
+    //Metodo que nos devuelve la edad del jugador.
     public int getEdad() {
         return edad;
     }
 
+    //Metodo que nos devuelve la posicion del jugador
     public String getPosicion(){
         return Posicion;
     }
 
+    //Metodo que nos permite saber si el jugador esta lesionado (true) o no (false).
     public boolean getLesionado(){
         return Lesionado;
     }
 
+    //Metodo que cambia su estado de lesionado a "true"
     public void Lesionarse(){
         if (!Lesionado){
             Lesionado = true;
         }
     }
 
+    //Metodo que cambia su estado de lesionado a "false"
     public void Recuperarse(){
         if (Lesionado){
             Lesionado = false;
