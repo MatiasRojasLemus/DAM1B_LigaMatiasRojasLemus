@@ -1,3 +1,5 @@
+import java.lang.reflect.Array;
+
 public class Equipo {
     private String Nombre;
     private String Ciudad;
@@ -22,6 +24,22 @@ public class Equipo {
 
     //Metodo que nos permite conocer el numero de jugadores que compone el equipo
     public int getNumJugadores() {
-        return NUMMAXJUGADORES;
+        return ListaJugadores.length;
     }
+
+    public void mostrarListaJugadores(){
+        for (int i= 0; i < ListaJugadores.length; i++){
+            System.out.println(ListaJugadores[i].getNombre());
+        }
+    }
+
+    public void adquirirJugador(Jugador jugador){
+        int i = 0;
+        while (ListaJugadores[i] != null){
+            i++;
+        }
+        ListaJugadores[i] = jugador;
+    }
+
+
 }
