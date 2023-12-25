@@ -22,7 +22,15 @@ public class Equipo {
 
     //Metodo que nos permite conocer el numero de jugadores que compone el equipo
     public int getNumJugadores() {
-        return ListaJugadores.length;
+        int indice = 0;
+        int numeroJugadores = 0;
+
+        while(ListaJugadores[indice] != null){
+            numeroJugadores++;
+            indice++;
+        }
+
+        return numeroJugadores;
     }
 
     public void mostrarListaJugadores(){

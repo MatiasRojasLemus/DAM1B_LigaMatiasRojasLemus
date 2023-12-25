@@ -14,5 +14,26 @@ public class Liga {
         }
     }
 
+    public int getNumEquipos(){
+        int indice = 0;
+        int numeroEquipos = 0;
 
+        while (ListadoEquipos[indice] != null){
+            numeroEquipos++;
+            indice++;
+        }
+        return numeroEquipos;
+    }
+
+    public String getPais(){
+        return Pais;
+    }
+
+    public void anyadirEquipo (Equipo equipo){
+        int indice = 0;
+        while(ListadoEquipos[indice] != null){
+            indice++;
+        }
+        ListadoEquipos[indice] = equipo;
+    }
 }
