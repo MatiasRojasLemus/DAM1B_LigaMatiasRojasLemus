@@ -1,5 +1,3 @@
-import java.lang.reflect.Array;
-
 public class Equipo {
     private String Nombre;
     private String Ciudad;
@@ -39,6 +37,27 @@ public class Equipo {
             i++;
         }
         ListaJugadores[i] = jugador;
+    }
+
+    public void venderJugador(Jugador jugador){
+        // Primero se busca el indice del Array ListaJugadores donde se encuentra el jugador a vender
+
+        int p = 0;
+        while (ListaJugadores[p] != jugador){
+            p++;
+        }
+
+        // Le damos un nombre coherente...
+        int indiceJugadorAVender = p;
+
+
+        /**
+         * Y una vez encontrado , se desplazan todos los que están a su derecha una posición a la izquierda,
+         * manteniendo la organización de la lista de jugadores, a la vez que se elimina al jugador de este.
+         */
+        for (int i = indiceJugadorAVender + 1; i < ListaJugadores.length; i++){
+            ListaJugadores[i - 1] = ListaJugadores [i];
+        }
     }
 
 
