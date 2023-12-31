@@ -14,6 +14,7 @@ public class Liga {
         }
     }
 
+    //Devuelve el numero de equipos que actualmente tiene una liga.
     public int getNumEquipos(){
         int indice = 0;
         int numeroEquipos = 0;
@@ -30,10 +31,19 @@ public class Liga {
     }
 
     public void anyadirEquipo (Equipo equipo){
-        int indice = 0;
-        while(ListadoEquipos[indice] != null){
-            indice++;
+        //Si el listado de equipos NO esta lleno:
+        if(getNumEquipos() != NUMMAXEQUIPOS){
+            int indice = 0;
+            while(ListadoEquipos[indice] != null){
+                indice++;
+            }
+            ListadoEquipos[indice] = equipo;
+            System.out.println("Equipo " + equipo.getNombre() + " insertado");
         }
-        ListadoEquipos[indice] = equipo;
+
+        //Pero si el listado esta lleno:
+        else {
+            System.out.println("La liga esta llena");
+        }
     }
 }
