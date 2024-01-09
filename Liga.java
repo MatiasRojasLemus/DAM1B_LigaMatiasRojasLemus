@@ -26,10 +26,18 @@ public class Liga {
         return numeroEquipos;
     }
 
+    public Equipo getEquipo(String nombreEquipo){
+        for(int i = 0; i < ListadoEquipos.length;i++){
+            if(ListadoEquipos[i].getNombre().equals(nombreEquipo)){
+                return ListadoEquipos[i];
+            }
+        }
+        return null;
+    }
+
     public String getPais(){
         return Pais;
     }
-
     public void anyadirEquipo (Equipo equipo){
         //Si el listado de equipos NO esta lleno:
         if(getNumEquipos() != NUMMAXEQUIPOS){
