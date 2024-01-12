@@ -32,7 +32,6 @@ public class Equipo {
 
         return numeroJugadores;
     }
-
     public void mostrarListaJugadores(){
         for (int i= 0; i < ListaJugadores.length; i++){
             System.out.println(ListaJugadores[i].getNombre());
@@ -40,11 +39,17 @@ public class Equipo {
     }
 
     public void adquirirJugador(Jugador jugador){
-        int i = 0;
-        while (ListaJugadores[i] != null){
-            i++;
+        if(getNumJugadores() != NUMMAXJUGADORES){
+            int i = 0;
+            while (ListaJugadores[i] != null){
+                i++;
+            }
+            ListaJugadores[i] = jugador;
+            System.out.println(jugador.getNombre() + " insertado en " + this.getNombre());
         }
-        ListaJugadores[i] = jugador;
+        else {
+            System.out.println("El equipo esta lleno");
+        }
     }
 
     public void venderJugador(Jugador jugador){
@@ -59,14 +64,12 @@ public class Equipo {
         int indiceJugadorAVender = p;
 
 
-        /**
-         * Y una vez encontrado , se desplazan todos los que están a su derecha una posición a la izquierda,
-         * manteniendo la organización de la lista de jugadores, a la vez que se elimina al jugador de este.
-         */
+
+         //Y una vez encontrado , se desplazan todos los que están a su derecha una posición a la izquierda, manteniendo
+        // la organización de la lista de jugadores, a la vez que se elimina al jugador de este.
+
         for (int i = indiceJugadorAVender + 1; i < ListaJugadores.length; i++){
             ListaJugadores[i - 1] = ListaJugadores [i];
         }
     }
-
-
 }

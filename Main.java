@@ -2,7 +2,6 @@ import java.util.Scanner;
 
 public class Main {
     private static Scanner teclado;
-    private static int opcionLiga;
     private static final int INSERTAREQUIPO = 1;
     private static final int INSERTARJUGADOR = 2;
     private static final int VEREQUIPOSLIGA = 3;
@@ -16,7 +15,8 @@ public class Main {
         System.out.print("Inserte el pais de la liga: ");
         String pais = teclado.nextLine();
         Liga miLiga = new Liga(pais);
-        opcionLiga = menuLiga();
+
+        int opcionLiga = menuLiga();
 
         while (opcionLiga != 6){
             switch(opcionLiga){
@@ -27,13 +27,12 @@ public class Main {
 
                 //Caso 2:
                 case INSERTARJUGADOR:
-                    System.out.println("Opcion 2");
+                    insertarJugador(miLiga);
                     break;
 
                 //Caso 3:
                 case VEREQUIPOSLIGA:
                     System.out.println("Opcion 3");
-                    miLiga.mostrarListadoEquipos();
                     break;
 
                 //Caso 4:
@@ -69,6 +68,7 @@ public class Main {
         return opcion;
     }
 
+    //Método para el caso 1:
     private static void insertarEquipo(Liga miLiga){
         System.out.print("Inserte el nombre del equipo: ");
         String nombreEquipo = teclado.next();
@@ -81,5 +81,45 @@ public class Main {
 
         System.out.println("Insertando equipo...");
         miLiga.anyadirEquipo(equipoAInsertar);
+    }
+
+    //Metodo para la Opcion 2:
+    private static void insertarJugador(Liga miLiga){
+        System.out.print("Indique el nombre del equipo donde quiere insertar el jugador: ");
+        String nombreEquipoInserccion = teclado.next();
+
+        System.out.print("Indique el nombre del jugador: ");
+        String nombreJugadorInserccion = teclado.next();
+
+        System.out.print("Indique la nacionalidad del jugador: ");
+        String nacionalidadJugador = teclado.next();
+
+        System.out.print("Indique la edad del jugador: ");
+        int edadJugador = teclado.nextInt();
+
+        System.out.print("Indique la posición del jugador: ");
+        String posicionJugador = teclado.next();
+
+        while ((!posicionJugador.equals("POR"))
+                && (!posicionJugador.equals("DEF"))
+                &&(!posicionJugador.equals("CTC"))
+                && (!posicionJugador.equals("DEL")))
+        {
+            System.out.println("Posicion no valida");
+            System.out.print("Indique la posición del jugador: ");
+            posicionJugador = teclado.next();
+        }
+
+        System.out.println("Creando jugador...");
+        Jugador jugadorInserccion = new Jugador(nombreJugadorInserccion, nacionalidadJugador, edadJugador, posicionJugador);
+
+        System.out.println("Insertando jugador...");
+
+        if(miLiga.getEquipo(nombreEquipoInserccion) == null){
+            System.out.println("El equipo indicado no existe: ");
+        }
+        else{
+            miLiga.getEquipo(nombreEquipoInserccion).adquirirJugador(jugadorInserccion);
+        }
     }
 }

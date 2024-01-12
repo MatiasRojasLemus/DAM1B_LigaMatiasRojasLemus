@@ -9,8 +9,8 @@ public class Liga {
     }
 
     public void mostrarListadoEquipos(){
-        for (int i = 0; i < ListadoEquipos.length; i++){
-            System.out.println(ListadoEquipos[i].getNombre());
+        for (int i = 0; i < this.getNumEquipos(); i++){
+            System.out.println(ListadoEquipos[i].getNombre() + "\t" + ListadoEquipos[i].getCiudad() + "\t" + ListadoEquipos[i].getNumJugadores());
         }
     }
 
@@ -27,17 +27,19 @@ public class Liga {
     }
 
     public Equipo getEquipo(String nombreEquipo){
-        for(int i = 0; i < ListadoEquipos.length;i++){
-            if(ListadoEquipos[i].getNombre().equals(nombreEquipo)){
+        for(int i = 0; i < getNumEquipos();i++){
+            if(nombreEquipo.equals(ListadoEquipos[i].getNombre())){
                 return ListadoEquipos[i];
             }
         }
+        //Si no encuentra ningún equipo en la Liga con el nombre "nombreEquipo", devolvera null.
         return null;
     }
 
     public String getPais(){
         return Pais;
     }
+
     public void anyadirEquipo (Equipo equipo){
         //Si el listado de equipos NO esta lleno:
         if(getNumEquipos() != NUMMAXEQUIPOS){
