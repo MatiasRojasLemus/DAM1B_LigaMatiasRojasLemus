@@ -33,8 +33,13 @@ public class Equipo {
         return numeroJugadores;
     }
     public void mostrarListaJugadores(){
-        for (int i= 0; i < ListaJugadores.length; i++){
-            System.out.println(ListaJugadores[i].getNombre());
+        for (int i = 0; i < getNumJugadores(); i++){
+            if (ListaJugadores[i].getLesionado()){
+                System.out.println(ListaJugadores[i].getNombre() + "\t" + ListaJugadores[i].getPosicion() + "\t" + ListaJugadores[i].getEdad() + "\t" + ListaJugadores[i].getNacionalidad() + "\t" + "SI");
+            }
+            else {
+                System.out.println(ListaJugadores[i].getNombre() + "\t" + ListaJugadores[i].getPosicion() + "\t" + ListaJugadores[i].getEdad() + "\t" + ListaJugadores[i].getNacionalidad() + "\t" + "NO");
+            }
         }
     }
 

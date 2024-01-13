@@ -37,7 +37,7 @@ public class Main {
 
                 //Caso 4:
                 case VERJUGADORESEQUIPO:
-                    System.out.println("Opcion 4");
+                    verJugadores(miLiga);
                     break;
 
                 //Caso 5:
@@ -129,5 +129,25 @@ public class Main {
         System.out.println("EQUIPO\t"+ "CIUDAD\t" + "NUMERO\t" + "JUGADORES");
         miLiga.mostrarListadoEquipos();
         System.out.println("*********************************************************");
+    }
+
+
+    //Método para el caso 4:
+    private static void verJugadores(Liga miLiga){
+        System.out.println("Indique el equipo que quiere visualizar: ");
+        String nombreEquipo = teclado.nextLine();
+
+        //Si existe el equipo, se mostrara la lista de jugadores.
+        if(miLiga.getEquipo(nombreEquipo) != null){
+            Equipo miEquipo = miLiga.getEquipo(nombreEquipo);
+            System.out.println("*********" + miEquipo.getNombre() + "****************************");
+            System.out.println("NOMBRE\t" + "POSICIÓN\t" + "EDAD\t" + "NAC\t" + "LESIONADO");
+            miEquipo.mostrarListaJugadores();
+            System.out.println("*********************************************");
+        }
+        // En caso contrario, se mostrará el siguiente mensaje:
+        else{
+            System.out.println("El equipo indicado no existe.");
+        }
     }
 }
