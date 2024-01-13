@@ -32,7 +32,7 @@ public class Main {
 
                 //Caso 3:
                 case VEREQUIPOSLIGA:
-                    System.out.println("Opcion 3");
+                    verLiga(miLiga);
                     break;
 
                 //Caso 4:
@@ -121,5 +121,13 @@ public class Main {
         else{
             miLiga.getEquipo(nombreEquipoInserccion).adquirirJugador(jugadorInserccion);
         }
+    }
+
+    //Método para el caso 3:
+    private static void verLiga(Liga miLiga){
+        System.out.println("**********COMPOSICIÓN DE LA LIGA*************************");
+        System.out.println("EQUIPO\t"+ "CIUDAD\t" + "NUMERO\t" + "JUGADORES");
+        miLiga.mostrarListadoEquipos();
+        System.out.println("*********************************************************");
     }
 }
