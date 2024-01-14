@@ -138,7 +138,7 @@ public class Main {
     //Método para el caso 3:
     private static void verLiga(Liga miLiga){
         System.out.println("**********COMPOSICIÓN DE LA LIGA*************************");
-        System.out.println("EQUIPO\t"+ "CIUDAD\t" + "NUMERO\t" + "JUGADORES");
+        System.out.println("EQUIPO\t\t"+ "CIUDAD\t\t" + "NUMERO JUGADORES");
         miLiga.mostrarListadoEquipos();
         System.out.println("*********************************************************");
     }
@@ -154,7 +154,7 @@ public class Main {
         if(miLiga.getEquipo(nombreEquipo) != null){
             Equipo miEquipo = miLiga.getEquipo(nombreEquipo);
             System.out.println("*********" + miEquipo.getNombre() + "****************************");
-            System.out.println("NOMBRE\t" + "POSICIÓN\t" + "EDAD\t" + "NAC\t" + "LESIONADO");
+            System.out.println("NOMBRE\t\t" + "POSICIÓN\t\t" + "EDAD\t\t" + "NAC\t\t" + "LESIONADO");
             miEquipo.mostrarListaJugadores();
             System.out.println("*********************************************");
         }
@@ -176,11 +176,10 @@ public class Main {
 
         teclado.nextLine();
 
-        System.out.print("Vendiendo jugador...");
+        System.out.println("Vendiendo jugador...");
 
         if(miLiga.getEquipo(nombreEquipo) != null){
             miLiga.getEquipo(nombreEquipo).venderJugador(nombreJugador);
-            System.out.print("Jugador vendido.");
         }
         else {
             System.out.println("El equipo indicado no existe.");

@@ -19,7 +19,7 @@ public class Liga {
      */
     public void mostrarListadoEquipos(){
         for (int i = 0; i < this.getNumEquipos(); i++){
-            System.out.println(ListadoEquipos[i].getNombre() + "\t" + ListadoEquipos[i].getCiudad() + "\t" + ListadoEquipos[i].getNumJugadores());
+            System.out.println(ListadoEquipos[i].getNombre() + "\t\t" + ListadoEquipos[i].getCiudad() + "\t\t" + ListadoEquipos[i].getNumJugadores());
         }
     }
 

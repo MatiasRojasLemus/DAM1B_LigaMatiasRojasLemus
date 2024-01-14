@@ -47,11 +47,11 @@ public class Equipo {
     public void mostrarListaJugadores(){
         for (int i = 0; i < this.getNumJugadores(); i++){
             if (ListaJugadores[i].getLesionado()){
-                System.out.println(ListaJugadores[i].getNombre() + "\t" + ListaJugadores[i].getPosicion() + "\t" + ListaJugadores[i].getEdad() + "\t" + ListaJugadores[i].getNacionalidad() + "\t" + "SI");
+                System.out.println(ListaJugadores[i].getNombre() + "\t\t" + ListaJugadores[i].getPosicion() + "\t\t" + ListaJugadores[i].getEdad() + "\t\t" + ListaJugadores[i].getNacionalidad() + "\t\t" + "SI");
             }
 
             else {
-                System.out.println(ListaJugadores[i].getNombre() + "\t" + ListaJugadores[i].getPosicion() + "\t" + ListaJugadores[i].getEdad() + "\t" + ListaJugadores[i].getNacionalidad() + "\t" + "NO");
+                System.out.println(ListaJugadores[i].getNombre() + "\t\t" + ListaJugadores[i].getPosicion() + "\t\t" + ListaJugadores[i].getEdad() + "\t\t" + ListaJugadores[i].getNacionalidad() + "\t\t" + "NO");
             }
         }
     }
@@ -108,9 +108,13 @@ public class Equipo {
             /* Y una vez encontrado , se desplazan todos los que están a su derecha una posición a la izquierda, manteniendo
                 la organización de la lista de jugadores, a la vez que se elimina al jugador de este.
              */
-            for (int j = i + 1; j < this.getNumJugadores(); j++){
+            for (int j = i + 1; j < ListaJugadores.length; j++){
                 ListaJugadores[j - 1] = ListaJugadores [j];
             }
+            System.out.println("Jugador vendido");
+        }
+        else {
+            System.out.println("Jugador no existe.");
         }
     }
 }
