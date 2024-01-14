@@ -70,11 +70,16 @@ public class Main {
 
     //Método para el caso 1:
     private static void insertarEquipo(Liga miLiga){
+        teclado.nextLine();
+
         System.out.print("Inserte el nombre del equipo: ");
-        String nombreEquipo = teclado.next();
+        String nombreEquipo = teclado.nextLine();
+
 
         System.out.print("Inserte la ciudad del equipo: ");
-        String ciudadEquipo = teclado.next();
+        String ciudadEquipo = teclado.nextLine();
+
+        teclado.nextLine();
 
         System.out.println("Creando equipo...");
         Equipo equipoAInsertar = new Equipo(nombreEquipo, ciudadEquipo);
@@ -85,14 +90,21 @@ public class Main {
 
     //Metodo para la Opcion 2:
     private static void insertarJugador(Liga miLiga){
+        teclado.nextLine();
         System.out.print("Indique el nombre del equipo donde quiere insertar el jugador: ");
-        String nombreEquipoInserccion = teclado.next();
+        String nombreEquipoInserccion = teclado.nextLine();
+
+        teclado.nextLine();
 
         System.out.print("Indique el nombre del jugador: ");
-        String nombreJugadorInserccion = teclado.next();
+        String nombreJugadorInserccion = teclado.nextLine();
+
+        teclado.nextLine();
 
         System.out.print("Indique la nacionalidad del jugador: ");
-        String nacionalidadJugador = teclado.next();
+        String nacionalidadJugador = teclado.nextLine();
+
+        teclado.nextLine();
 
         System.out.print("Indique la edad del jugador: ");
         int edadJugador = teclado.nextInt();
@@ -134,7 +146,8 @@ public class Main {
 
     //Método para el caso 4:
     private static void verJugadores(Liga miLiga){
-        System.out.println("Indique el equipo que quiere visualizar: ");
+        teclado.nextLine();
+        System.out.print("Indique el equipo que quiere visualizar: ");
         String nombreEquipo = teclado.nextLine();
 
         //Si existe el equipo, se mostrara la lista de jugadores.
@@ -152,6 +165,7 @@ public class Main {
     }
     //Método para el caso 5:
     private static void venderJugador(Liga miLiga){
+        teclado.nextLine();
         System.out.print("Inserte el nombre del equipo donde quiere vender el jugador: ");
         String nombreEquipo = teclado.nextLine();
 
