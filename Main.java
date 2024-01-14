@@ -42,7 +42,7 @@ public class Main {
 
                 //Caso 5:
                 case VENDERJUGADOR:
-                    System.out.println("Opcion 5");
+                    venderJugador(miLiga);
                     break;
             }
             opcionLiga = menuLiga();
@@ -147,6 +147,28 @@ public class Main {
         }
         // En caso contrario, se mostrará el siguiente mensaje:
         else{
+            System.out.println("El equipo indicado no existe.");
+        }
+    }
+    //Método para el caso 5:
+    private static void venderJugador(Liga miLiga){
+        System.out.print("Inserte el nombre del equipo donde quiere vender el jugador: ");
+        String nombreEquipo = teclado.nextLine();
+
+        teclado.nextLine();
+
+        System.out.print("Inserte el nombre del jugador: ");
+        String nombreJugador = teclado.nextLine();
+
+        teclado.nextLine();
+
+        System.out.print("Vendiendo jugador...");
+
+        if(miLiga.getEquipo(nombreEquipo) != null){
+            miLiga.getEquipo(nombreEquipo).venderJugador(nombreJugador);
+            System.out.print("Jugador vendido.");
+        }
+        else {
             System.out.println("El equipo indicado no existe.");
         }
     }

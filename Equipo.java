@@ -57,24 +57,33 @@ public class Equipo {
         }
     }
 
-    public void venderJugador(Jugador jugador){
-        // Primero se busca el indice del Array ListaJugadores donde se encuentra el jugador a vender
+    public void venderJugador(String nombreJugador){
+        // Primero se busca el indice del Array ListaJugadores donde se encuentra el jugador a vender.
+        Jugador miJugadorAux = null;
+        int i = 0;
 
-        int p = 0;
-        while (ListaJugadores[p] != jugador){
-            p++;
+        /* Este while busca si existe o no el jugador a vender mediante un objeto Jugador auxiliar "miJugadorAux" de valor null (definido anteriormente).
+           Su valor cambiara si se encuentra al jugador, y al mismo tiempo ya sabremos cual objeto del array ListaJugadores debemos manipular.
+           Y en caso de no encontrarlo, miJugadorAux mantendrá su valor null.
+         */
+
+        while (miJugadorAux == null && (i < getNumJugadores())){
+            if(nombreJugador.equals(ListaJugadores[i].getNombre())){
+                //Aclaracion: Se introduce unos valores por introducir, no necesariamente deben de ser los mismos que ListaJugadores[i]
+                miJugadorAux = new Jugador(ListaJugadores[i].getNombre(), ListaJugadores[i].getNacionalidad(), ListaJugadores[i].getEdad(), ListaJugadores[i].getPosicion());
+            }
+            else {
+                i++;
+            }
         }
 
-        // Le damos un nombre coherente...
-        int indiceJugadorAVender = p;
-
-
-
-         //Y una vez encontrado , se desplazan todos los que están a su derecha una posición a la izquierda, manteniendo
-        // la organización de la lista de jugadores, a la vez que se elimina al jugador de este.
-
-        for (int i = indiceJugadorAVender + 1; i < ListaJugadores.length; i++){
-            ListaJugadores[i - 1] = ListaJugadores [i];
+        if(miJugadorAux != null){
+            /* Y una vez encontrado , se desplazan todos los que están a su derecha una posición a la izquierda, manteniendo
+                la organización de la lista de jugadores, a la vez que se elimina al jugador de este.
+             */
+            for (int j = i + 1; j < this.getNumJugadores(); j++){
+                ListaJugadores[j - 1] = ListaJugadores [j];
+            }
         }
     }
 }
